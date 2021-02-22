@@ -5,7 +5,7 @@ Changelog
 * :feature:`-` Add mostly complete header datamodel.
 * :feature:`-` Update configuration file with real S/N for all GFA and FVC. Set the correct image names and directory names.
 * :feature:`-` Add option to simulate cameras and exposures.
-* :support:`-` Format with `black` and add types to most of the codebase.
+* :support:`-` Format with ``black`` and add types to most of the codebase.
 
 * :release:`0.1.2 <2020-12-07>`
 * :bug:`5` Fixed compilation of ``libfli``. It was failing due to an issue with the libraries to be linked when outside RTD or GH environment.
