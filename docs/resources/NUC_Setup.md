@@ -49,13 +49,13 @@ sudo systemctl mask systemd-networkd-wait-online.service
 127.0.1.1 sdss-gfaX
 
 10.25.1.1       sdss-hub sdss-hub.apo.nmsu.edu
-10.25.10.21     sdss-gfa1 sdss-gfa1.apo.nmsu.edu
-10.25.10.22     sdss-gfa2 sdss-gfa2.apo.nmsu.edu
-10.25.10.23     sdss-gfa3 sdss-gfa3.apo.nmsu.edu
-10.25.10.24     sdss-gfa4 sdss-gfa4.apo.nmsu.edu
-10.25.10.25     sdss-gfa5 sdss-gfa5.apo.nmsu.edu
-10.25.10.26     sdss-gfa6 sdss-gfa6.apo.nmsu.edu
-10.25.10.20     sdss-fvc sdss-fvc.apo.nmsu.edu
+10.25.1.121     sdss-gfa1 sdss-gfa1.apo.nmsu.edu
+10.25.1.122     sdss-gfa2 sdss-gfa2.apo.nmsu.edu
+10.25.1.123     sdss-gfa3 sdss-gfa3.apo.nmsu.edu
+10.25.1.124     sdss-gfa4 sdss-gfa4.apo.nmsu.edu
+10.25.1.125     sdss-gfa5 sdss-gfa5.apo.nmsu.edu
+10.25.1.126     sdss-gfa6 sdss-gfa6.apo.nmsu.edu
+10.25.1.120     sdss-fvc sdss-fvc.apo.nmsu.edu
 ```
 
 replacing `sdss-gfaX` with the correct NUC hostname. For the LCO-bound NUCs, replace `apo.nmsu.edu` with `.lco.cl`.
