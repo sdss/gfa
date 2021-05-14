@@ -175,7 +175,7 @@ def flicamera(ctx, cameras, config_path, simulate, simulation_profile, verbose):
     ctx.obj["verbose"] = verbose
 
 
-@flicamera.group(cls=DaemonGroup, prog="actor", workdir=os.getcwd())
+@flicamera.group(cls=DaemonGroup, prog="flicamera_actor", workdir=os.getcwd())
 @click.option(
     "-n",
     "--actor-name",

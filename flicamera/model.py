@@ -406,6 +406,12 @@ raw_header_model = HeaderModel(
             "Time of the start of the exposure [TAI]",
         ),
         Card(
+            "MJD",
+            "int(__exposure__.obstime.mjd)",
+            "Modified Julian Day of the exposure",
+            evaluate=True,
+        ),
+        Card(
             "CCDTEMP",
             "{__camera__.status[temperature_ccd]}",
             "Degrees C",
@@ -449,9 +455,9 @@ raw_header_model = HeaderModel(
 flicamera_model = FITSModel(
     [
         Extension(
-            data=None,
+            data="raw",
             header_model=raw_header_model,
-            name="raw",
+            name="RAW",
             compressed="GZIP_2",
         )
     ]

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "This schema is meant to extend the basecam default schema",
+  "type": "object",
+  "properties": {
+    "source_detected": {
+      "type": "object",
+      "properties": {
+        "camera": { "type": "string" },
+        "id": { "type": "integer" },
+        "xcentroid",
+        "ycentroid",
+ "sharpness",
+ "roundness1",
+ "roundness2",
+ "npix",
+ "sky",
+ "peak",
+ "flux",
+      }
+    }
+  }
+}

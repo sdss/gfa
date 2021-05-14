@@ -890,18 +890,25 @@ numpy = ">=1.16.5"
 
 [[package]]
 name = "sdss-basecam"
-version = "0.4.2"
+version = "0.4.3-alpha.0"
 description = "A base library for camera wrapping and actor."
 category = "main"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = "^3.7"
+develop = false
 
 [package.dependencies]
-astropy = ">=4.0,<5.0"
-numpy = ">=1.17,<2.0"
-sdss-clu = ">=0.6.0,<0.7.0"
+astropy = "^4.0"
+numpy = "^1.17"
+sdss-clu = "^0.6.0"
 sdsstools = ">=0.4.0"
-typing-extensions = {version = ">=3.7.4,<4.0.0", markers = "python_version <= \"3.7\""}
+typing-extensions = {version = "^3.7.4", markers = "python_version <= \"3.7\""}
+
+[package.source]
+type = "git"
+url = "https://github.com/sdss/basecam.git"
+reference = "main"
+resolved_reference = "677f28d3918adbe190d1d10da3f617c4525f9382"
 
 [[package]]
 name = "sdss-clu"
@@ -1212,7 +1219,7 @@ docs = ["Sphinx", "sphinx-copybutton", "m2r2", "sphinx-click"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "35b8cea8e4e320227bb71902a01aaa7f595d496c2410fd8e4cb7d2dfd2dfaa36"
+content-hash = "a09249e53b1a841acd35a5bc4479f06d62fe1f2fe86fe3fa534365f084fdf566"
 
 [metadata.files]
 aio-pika = [
@@ -1913,10 +1920,7 @@ scipy = [
     {file = "scipy-1.6.1-cp39-cp39-win_amd64.whl", hash = "sha256:a5193a098ae9f29af283dcf0041f762601faf2e595c0db1da929875b7570353f"},
     {file = "scipy-1.6.1.tar.gz", hash = "sha256:c4fceb864890b6168e79b0e714c585dbe2fd4222768ee90bc1aa0f8218691b11"},
 ]
-sdss-basecam = [
-    {file = "sdss-basecam-0.4.2.tar.gz", hash = "sha256:363626332ea827cc2d50124f860d296d0a051adc3ae3a8fac7bcbd196d4488b4"},
-    {file = "sdss_basecam-0.4.2-py3-none-any.whl", hash = "sha256:93a036705a8cdbd27778483e9a13dae1bb1c39292a76d94444ccb8d224da2ccf"},
-]
+sdss-basecam = []
 sdss-clu = [
     {file = "sdss-clu-0.6.3.tar.gz", hash = "sha256:7bfe3247e677b112f4cd26261052d45fd563172bf8333eaeb0fa158546289987"},
     {file = "sdss_clu-0.6.3-py3-none-any.whl", hash = "sha256:2d6ee9883df61d97c437d238f5459a9238b5192c6d9f1cf8da0e3a9df08714f1"},

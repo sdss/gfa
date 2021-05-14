@@ -36,7 +36,7 @@ flicamera = "flicamera.__main__:main"
 [tool.poetry.dependencies]
 python = "^3.7"
 numpy = "^1.17.4"
-sdss-basecam = "^0.4.2"
+sdss-basecam =  {git="https://github.com/sdss/basecam.git", branch="main"}
 sdsstools = ">=0.4.0"
 daemonocle = "^1.0.2"
 click_default_group = "^1.2.2"
@@ -82,7 +82,7 @@ fast = true
 profile = "black"
 sections = ["FUTURE", "STDLIB", "TYPING", "THIRDPARTY", "SDSS", "FIRSTPARTY", "LOCALFOLDER"]
 default_section = "THIRDPARTY"
-known_first_party = "archon"
+known_first_party = "flicamera"
 known_typing = ["typing"]
 known_sdss = ["sdsstools", "clu", "basecam"]
 lines_after_imports = 2

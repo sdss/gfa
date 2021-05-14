@@ -6,9 +6,7 @@
 # @Filename: conftest.py
 # @License: BSD 3-clause (http://www.opensource.org/licenses/BSD-3-Clause)
 
-import os
 import pathlib
-import warnings
 
 import pytest
 
@@ -16,15 +14,10 @@ from sdsstools import read_yaml_file
 
 from flicamera import FLICameraSystem
 from flicamera.lib import LibFLI, LibFLIDevice
-from flicamera.mock import MockFLIDevice, MockLibFLI
+from flicamera.mock import MockFLIDevice, MockLibFLI, get_mock_camera_system
 
 
 TEST_DATA = pathlib.Path(__file__).parent / "data/test_data.yaml"
-
-warnings.filterwarnings("ignore", ".+was compiled without a copy of libfli.+")
-
-
-os.environ["PYTEST_RUNNING"] = "1"
 
 
 @pytest.fixture(scope="session")
@@ -73,16 +66,22 @@ def cameras(libfli):
 @pytest.fixture
 async def camera_system(mock_libfli, config):
 
-    camera_system = FLICameraSystem(camera_config=TEST_DATA, simulation_mode=True)
-    camera_system.lib.libc.devices = []  # type: ignore
+    # devices = {}
+    # for camera in config["cameras"]:
+    #     devices[camera] = MockFLIDevice(camera, status_params=config["cameras"][camera])
 
-    for camera in config["cameras"]:
-        device = MockFLIDevice(camera, status_params=config["cameras"][camera])
-        camera_system.lib.libc.devices.append(device)
+    camera_system = await get_mock_camera_system(config, {})
+
+    # camera_system = FLICameraSystem(camera_config=TEST_DATA, simulation_mode=True)
+    # camera_system.lib.libc.devices = []  # type: ignore
+
+    # for camera in config["cameras"]:
+    #     device = MockFLIDevice(camera, status_params=config["cameras"][camera])
+    #     camera_system.lib.libc.devices.append(device)
 
     camera_system.setup()
-    for camera in config["cameras"]:
-        await camera_system.add_camera(camera)
+    for camera in camera_system.cameras:
+        print(camera._device)
 
     yield camera_system
 
@@ -92,3 +91,9 @@ async def camera_system(mock_libfli, config):
         await camera.disconnect()
 
     await camera_system.disconnect()
+
+
+@pytest.fixture
+async def camera(camera_system):
+
+    yield camera_system.cameras[0]
